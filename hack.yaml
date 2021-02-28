@@ -1,0 +1,28 @@
+runtime: php73 # Replace with php74 to use PHP 7.4
+
+runtime_config:
+  document_root: .
+
+#default to index.php but can change
+entrypoint:
+  serve home.php
+
+handlers:
+# Serve a directory as a static resource.
+- url: /stylesheets
+  static_dir: stylesheets
+
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg)$
+
+# Serve your app through a front controller at index.php or public/index.php.
+- url: .*
+  script: auto
+
+env_variables:
+  CLOUDSQL_USER: root
+  CLOUDSQL_DB: hackutddatabase
+  CLOUDSQL_PASSWORD: a7Nkqe7euZ46nvb_!*EC
+  CLOUDSQL_DSN: /cloudsql/hackutd2:us-central1:myinstance

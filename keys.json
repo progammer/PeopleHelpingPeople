@@ -1,0 +1,16 @@
+{
+    "http_req":"https://us-central1-hackutd2.cloudfunctions.net/query",
+    "geoloc_api":"www.google.com",
+    "gcloudsql": {
+        "server": "34.71.184.13",
+        "user": "root",
+        "pass": "a7Nkqe7euZ46nvb_!*EC",
+        "name": "hackutddatabase"
+    },
+    "localsql": {
+        "server": "localhost",
+        "user": "root",
+        "pass": "",
+        "name": "test"
+    }
+}
