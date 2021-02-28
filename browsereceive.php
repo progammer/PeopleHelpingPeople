@@ -11,6 +11,7 @@ session_start();
 <body>
     <?php $page='home'; include 'resources/includes/navbar.php'; ?>
 
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal">View Listing</button>
 
 
 	<!--Modal that shall persist and be dynamically updated when a card is clicked, rather than creating
