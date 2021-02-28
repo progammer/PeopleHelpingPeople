@@ -84,7 +84,7 @@ session_start();
 			return $output;
 		
 		}
-		$result = mysqli_query($link, "SELECT id, username FROM users");
+		$result = mysqli_query($link, "SELECT provID, username FROM users");
 		$i = 69;
 		
 		while ($row = $result->fetch_assoc()) {
