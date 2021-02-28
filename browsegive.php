@@ -1,3 +1,7 @@
+<?php
+// Initialize the session
+session_start();
+?>
 <!doctype html>
 <html lang="en-US" dir="ltr">
 <head>
@@ -6,29 +10,6 @@
 
 <body>
     <?php $page='home'; include 'resources/includes/navbar.php'; ?>
-    <div style="background-color:transparent " class="jumbotron shadow-none">
-		<div style="background-color:transparent " class="container">
-			<h2 class="text-center pt-5 pb-3">building a better world, one person at a time</h2>
-			<div class="row justify-content-center text-center">
-				<div class="col-10 col-md-4">
-					<div class="feature">
-                        <img src="resources/img/rain.png" width=64 height=64>
-						<h3>request</h3>
-						<p>seek assistance in the face of overwhelming obstacles</p>
-					</div>
-				</div>
-				<div class="col-10 col-md-4">
-					<div class="feature">
-                    <img src="resources/img/umbrella.png" width=64 height=64>
-						<h3>give</h3>
-						<p>better your community through service and awareness</p>
-					</div>
-				</div>
-
-			</div>
-            <h3 class="text-center pt-5 pb-3">ready to get started? register now</h2>
-		</div>
-	</div>
 
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal">View Listing</button>
 
@@ -82,31 +63,32 @@
 			return $output;
 		
 		}
-		$result = mysqli_query($link, "SELECT provID, username FROM providers");
-		$i = 69;
+
 		
-		while ($row = $result->fetch_assoc()) {
-			$i++;
+
+		//$givereceive = $_SESSION['givereceive'];
+		$username = $_SESSION['username'];
+
+		$result = mysqli_query($link, "SELECT * FROM opportunity WHERE NOT (username = '$username') AND (giverecieve='give')");
+
+		while($row = mysqli_fetch_assoc($result)) {
 			// til print has return value 1, whereas echo has none. can use echo in expressions
 			// print (print 'hi');
-			// Stack Overflow is sexy https://stackoverflow.com/questions/11905140/php-pass-variable-to-include
 			includeWithVariables('resources/includes/rain-listing.php', array(
-				'name' => $row['username'],
-				'id' => $row['id'],
-				'num' => $i
+				'name' => $row['name'],
+				'phone' => $row['phone'],
+				'email' => $row['email'],
+				'date' => $row['date'],
+				'givereceive' => $row['giverecieve'],
+				'number' => $row['number'],
+				'street' => $row['streetname'],
+				'state' => $row['state'],
+				'zip' => $row['zip'],
+				'city' => $row['city'],
+				'user' => $row['username'],
 			));
 		}
 	?>
-
-
-
-    <?php 
-        // super global check
-        if (isset($_SESSION['username'])) {
-            echo 'logged in as ', $_SESSION['username'];
-        } else {
-            echo 'not currentl logged in';
-        }?>
 
 
 	<?php include 'resources/includes/footer.php'?>

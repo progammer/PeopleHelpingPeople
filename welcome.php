@@ -18,9 +18,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <?php include "resources/includes/navbar.php"?>
+    <?php include "resources/includes/footer.php"?>
     <div class="wrapper col-5" style="padding-top: 75px; text-align:middle">
-            <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to people helping people.</h1>
+            <h1>Welcome to the family, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>!😃 Here's to
+            a better world of people helping people.</h1>
         <p>
+            <a href="home.php" class="btn">Back Home</a>
             <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
             <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
         </p>

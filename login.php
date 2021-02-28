@@ -77,7 +77,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username; 
+                            $_SESSION['givereceive'] = "give";                           
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
@@ -133,6 +134,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
     </div>
-
+    <?php include "resources/includes/footer.php"?>
 </body>
 </html>

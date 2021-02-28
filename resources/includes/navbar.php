@@ -7,17 +7,34 @@
                 <li class="nav-item">
                     <a class="nav-link <?php if($page=='home'){echo 'thicc';}?>" href="home.php">Home</a>
                 </li>
+
+                <?php 
+                // super global check
+                if (isset($_SESSION['username'])) {
+                    echo '<li class="nav-item">
+                        <a class="nav-link" href="request.php">Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="browsegive.php">Browse Givers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="browsereceive.php">Browse Opportunities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.php">Manage Account</a>
+                    </li>';
+                } else {
+                    echo '<li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>';
+                }?>
+
+                
                 <li class="nav-item">
-                    <a class="nav-link <?php if($page=='register'){echo 'thicc';}?>" href="register.php">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if($page=='config'){echo 'thicc';}?>" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if($page=='browse'){echo 'thicc';}?>" href="browse.php">Browse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if($page=='contact'){echo 'thicc';}?>" href="contact.php">Contact</a>
+                    <a class="nav-link" href="contact.php">Contact</a>
                 </li>
             </ul>
         </div>
