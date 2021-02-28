@@ -29,7 +29,7 @@ $inst = getenv('CLOUDSQL_DSN');
 // }
 /* Attempt to connect to MySQL database */
 //mysqli_connect(host, username, password, dbname, port, socket)
-$link = mysqli_connect(null, $user, $pass, $db, "34.71.184.13", $inst);
+$link = mysqli_connect(null, $user, $pass, $db, null, $inst);
  
 // Check connection
 if($link === false){

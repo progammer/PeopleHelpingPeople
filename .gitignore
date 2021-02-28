@@ -2,4 +2,5 @@
 /webalizer
 /dashboard
 /img
-api_keys.txt
+keys.json
+hack.yaml
